@@ -1,6 +1,6 @@
 import { characters, locales } from "./lib/locale.ts";
 
-interface ISlugOptions {
+interface SlugOptions {
   replacement: string;
   remove: RegExp | undefined;
   lower: boolean;
@@ -22,8 +22,26 @@ interface ISlugOptions {
   extends: Record<string, string>;
 }
 
-export function slug(input: string, options?: string | ISlugOptions): string {
-  let settings: ISlugOptions = {
+/**
+ * Converts a string into a valid slug
+ * @example
+ * console.log(slug("some string")); // some-string
+ * console.log(slug("some string", "_")); // some_string
+ * console.log(slug("I ♥ UNICODE")); // I-love-UNICODE
+ * console.log(slug("I ♥ UNICODE"), { lower: true }); // i-love-unicode
+ * @example
+ * slug("some ƒÚÑķÝ and ☢ string", {
+ *  replacement: "-",
+ *  remove: undefined,
+ *  lower: false,
+ *  strict: false,
+ *  locale: "vi",
+ *  trim: true,
+ *  extends: { "☢": "nuclear" },
+ * }); // some-fUNkY-and-nuclear-string
+ */
+export function slug(input: string, options?: string | SlugOptions): string {
+  let settings: SlugOptions = {
     replacement: "-",
     remove: undefined,
     lower: false,
