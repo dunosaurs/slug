@@ -1,6 +1,6 @@
 # slug
 
-> Deno library for converting arbitrary strings in valid slugs
+> Deno library for converting arbitrary strings into valid slugs
 
 ```typescript
 import { slug } from "https://deno.land/x/slug/mod.ts";
