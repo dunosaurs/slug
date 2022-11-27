@@ -33,7 +33,7 @@ export interface SlugOptions {
  * slug("some ƒÚÑķÝ and ☢ string", {
  *  replacement: "-",
  *  remove: undefined,
- *  lower: false,
+ *  lower: true,
  *  strict: false,
  *  locale: "vi",
  *  trim: true,
@@ -47,7 +47,7 @@ export function slug(
   let settings: SlugOptions = {
     replacement: "-",
     remove: undefined,
-    lower: false,
+    lower: true,
     strict: false,
     locale: "vi",
     trim: true,
@@ -88,6 +88,9 @@ export function slug(
 
   // convert spaces to replacement characters (and treat multiple spaces as a single space)
   output = output.replace(/\s+/g, settings.replacement);
+
+  // add remove functionality
+  output = output.replaceAll(settings.remove ?? /[^\w\s$*_+~.()'"!\-:@]+/g, '')
 
   return output;
 }
