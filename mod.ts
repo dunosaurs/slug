@@ -2,7 +2,7 @@ import { characters, locales } from "./lib/locale.ts";
 
 export interface SlugOptions {
   replacement: string;
-  remove: RegExp | undefined;
+  remove: RegExp;
   lower: boolean;
   strict: boolean;
   locale:
@@ -46,7 +46,7 @@ export function slug(
 ): string {
   let settings: SlugOptions = {
     replacement: "-",
-    remove: undefined,
+    remove: /[^\w\s$*_+~.()'"!\-:@]+/g,
     lower: true,
     strict: false,
     locale: "vi",
@@ -90,7 +90,7 @@ export function slug(
   output = output.replace(/\s+/g, settings.replacement);
 
   // add remove functionality
-  output = output.replaceAll(settings.remove ?? /[^\w\s$*_+~.()'"!\-:@]+/g, "");
+  output = output.replaceAll(settings.remove, "");
 
   return output;
 }
