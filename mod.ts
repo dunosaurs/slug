@@ -40,7 +40,7 @@ interface SlugOptions {
  *  extends: { "☢": "nuclear" },
  * }); // some-fUNkY-and-nuclear-string
  */
-export function slug(input: string, options?: string | SlugOptions): string {
+export function slug(input: string, options?: string | Partial<SlugOptions>): string {
   let settings: SlugOptions = {
     replacement: "-",
     remove: undefined,

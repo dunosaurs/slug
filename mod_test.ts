@@ -17,4 +17,10 @@ Deno.test("Test all README examples", () => {
     }),
     "some-fUNkY-and-nuclear-string",
   );
+  assertEquals(
+    slug("partial test", {
+      replacement: "-"
+    }),
+    "partial-test",
+  );
 });

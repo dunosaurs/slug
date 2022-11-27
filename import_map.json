@@ -1,7 +1,5 @@
 {
-  "tasks": {
-  },
   "imports": {
-    "std/": "https://deno.land/std@0.162.0/"
+    "std/": "https://deno.land/std@0.166.0/"
   }
 }
