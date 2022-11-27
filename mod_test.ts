@@ -19,7 +19,7 @@ Deno.test("Test all README examples", () => {
   );
   assertEquals(
     slug("partial test", {
-      replacement: "-"
+      replacement: "-",
     }),
     "partial-test",
   );
