@@ -90,7 +90,7 @@ export function slug(
   output = output.replace(/\s+/g, settings.replacement);
 
   // add remove functionality
-  output = output.replaceAll(settings.remove ?? /[^\w\s$*_+~.()'"!\-:@]+/g, '')
+  output = output.replaceAll(settings.remove ?? /[^\w\s$*_+~.()'"!\-:@]+/g, "");
 
   return output;
 }
