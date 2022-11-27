@@ -1,6 +1,6 @@
 import { characters, locales } from "./lib/locale.ts";
 
-interface SlugOptions {
+export interface SlugOptions {
   replacement: string;
   remove: RegExp | undefined;
   lower: boolean;
